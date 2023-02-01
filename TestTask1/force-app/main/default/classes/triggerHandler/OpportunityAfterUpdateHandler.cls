@@ -14,7 +14,6 @@ public with sharing class OpportunityAfterUpdateHandler extends TriggerHandler {
         if(!opportunitiesForNotification.isEmpty()) {
             oppNotificationService.notifyManagersByRole(opportunitiesForNotification);
         }
-        
     }
 
     private Boolean shouldNotifyManagers(Opportunity oldOpp, Opportunity newOpp) {
