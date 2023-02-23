@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Critical_Amount__c</fullName>
+    <description>Specify opportunity amount for managers notification</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If amount lesser than specified notifications aren&apos;t sent after opportunity update</inlineHelpText>
+    <label>Critical Amount For Notification</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

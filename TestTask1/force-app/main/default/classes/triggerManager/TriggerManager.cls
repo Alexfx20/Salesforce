@@ -1,16 +1,21 @@
-public with sharing abstract class TriggerManager {
+public with sharing class TriggerManager {
     public static Boolean stopAllTriggers = false;
 
-    protected abstract TriggerHandler getHandler();
+    private Map<System.TriggerOperation, TriggerHandler> triggerHandlerByTypeMap = new Map<System.TriggerOperation, TriggerHandler>();
 
     public void manage() {
         if(this.shouldRunTrigger()) {
-            TriggerHandler handler = this.getHandler();
+            TriggerHandler handler = this.triggerHandlerByTypeMap.get(Trigger.operationType);
             if(handler == null) {
                 throw new TriggerHandler.TriggerHandlerException('Register trigger handler for the following operationType: ' + Trigger.operationType);
             }
             handler.handleTrigger();
         }
+    }
+
+    public TriggerManager registerTriggerHandler(System.TriggerOperation operationType, TriggerHandler handler) {
+        this.triggerHandlerByTypeMap.put(operationType, handler);
+        return this;
     }
 
     private Boolean shouldRunTrigger() {

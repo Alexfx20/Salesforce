@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_StageName__c</fullName>
+    <description>Specify opportunity stage name for notification</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If opportunity stage name is updated to specified value and opportunity amount equals or greater than specified in &quot;Critical Amount&quot; field managers of the user are notified</inlineHelpText>
+    <label>Opportunity StageName</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

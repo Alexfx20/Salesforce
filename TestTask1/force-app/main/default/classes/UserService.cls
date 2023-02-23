@@ -1,26 +1,26 @@
 public with sharing class UserService {
 
-   private static Map<Id, User> userWithManagerIdMap = new Map<Id, User>();
+    private static Map<Id, User> userWithManagerIdMap = new Map<Id, User>();
     
     public static Id getManagerId(Id userId) {
         User userObj = userWithManagerIdMap.get(userId);
-        if(userObj == null) {
-            userObj = [select id, ManagerId FROM User WHERE Id =:userId];
+        if (userObj == null) {
+            userObj = [SELECT Id, ManagerId FROM User WHERE Id = :userId WITH SECURITY_ENFORCED];
             userWithManagerIdMap.put(userObj.Id, userObj);
         }
          
-        if(userObj.ManagerId == null) {
+        if (userObj.ManagerId == null) {
             handleManagerAbsence(userId);
         }
         return userObj.ManagerId;
     }
 
     public static List<Id> getUsersByRoles(Id roleId) {
-        if(roleId == null) {
+        if (roleId == null) {
             handleRoleAbsence();
             return new List<Id>();
         }
-        Map<Id, User> userMap = new Map<Id, User>([SELECT Id, UserRoleId FROM User WHERE UserRoleId =: roleId]);
+        Map<Id, User> userMap = new Map<Id, User>([SELECT Id, UserRoleId FROM User WHERE UserRoleId = :roleId WITH SECURITY_ENFORCED]);
         return new List<Id>(userMap.keySet());
     }
 

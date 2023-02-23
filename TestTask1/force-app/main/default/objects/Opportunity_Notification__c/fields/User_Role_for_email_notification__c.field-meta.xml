@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Role_for_email_notification__c</fullName>
+    <description>User Role for email notification and record sharing</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specify User Role of the users to whom edit access to the record should be granted and email notification should be sent when opportunity amount and stage meet conditions specified above</inlineHelpText>
+    <label>User Role for email notification</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
